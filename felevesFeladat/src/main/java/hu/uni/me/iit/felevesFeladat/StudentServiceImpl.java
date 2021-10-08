@@ -10,9 +10,9 @@ public class StudentServiceImpl implements StudentService {
 	private final StudentRepository studentRepository;
 	
 	public StudentServiceImpl(StudentRepository studentRepository) {
-		this.studentRepository=studentRepository;
+		this.studentRepository = studentRepository;
 	}
-	
+
 	@Override
 	public List<StudentDto> findAll() {
 		return studentRepository.findAll();
@@ -25,15 +25,16 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Long save(StudentDto studentDto) {
-		if(studentRepository.findAll().size() >= MAXIMUM_STUDENT_COUNT) {
+		if(studentRepository.findAll().size()<MAXIMUM_STUDENT_COUNT) {
+			return studentRepository.save(studentDto);
+		}
+		else {
 			throw new TooMuchStudentException();
 		}
-		return studentRepository.save(studentDto);
 	}
 
 	@Override
 	public void deleteById(Long id) {
 		studentRepository.deleteById(id);
 	}
-
 }

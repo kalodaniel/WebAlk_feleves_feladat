@@ -1,21 +1,17 @@
 package hu.uni.me.iit.felevesFeladat;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 public class StudentDto {
 	
 	@NotNull
 	private Long id;
-	
 	@NotBlank
-	@NotNull
 	private String name;
 	@NotBlank
-	private String neptunCode;
+	private String neptun;
 	@Min(10)
-	private Integer age;
+	private int age;
 	
 	public String getName() {
 		return name;
@@ -23,16 +19,16 @@ public class StudentDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNeptunCode() {
-		return neptunCode;
+	public String getNeptun() {
+		return neptun;
 	}
-	public void setNeptunCode(String neptunCode) {
-		this.neptunCode = neptunCode;
+	public void setNeptun(String neptun) {
+		this.neptun = neptun;
 	}
-	public Integer getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public Long getId() {
@@ -43,10 +39,10 @@ public class StudentDto {
 	}
 	@Override
 	public String toString() {
-		return "StudentDto [id=" + id + ", name=" + name + ", neptunCode=" + neptunCode + ", age=" + age
-				+ ", getName()=" + getName() + ", getNeptunCode()=" + getNeptunCode() + ", getAge()=" + getAge()
-				+ ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "StudentDto [id=" + id + ", name=" + name + ", neptun=" + neptun + ", age=" + age + ", getName()="
+				+ getName() + ", getNeptun()=" + getNeptun() + ", getAge()=" + getAge() + ", getId()=" + getId()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 	
 	

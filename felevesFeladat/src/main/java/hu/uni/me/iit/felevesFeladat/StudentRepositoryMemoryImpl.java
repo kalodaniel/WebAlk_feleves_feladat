@@ -29,7 +29,7 @@ private final List<StudentDto> students = new ArrayList<>();
 	@Override
 	public StudentDto getById(Long id) {
 		int found = getStudentById(id);
-		return students.get(found);
+		 return found == -1 ? null : students.get(found);
 	}
 
 	@Override
@@ -51,7 +51,10 @@ private final List<StudentDto> students = new ArrayList<>();
 	@Override
 	public void deleteById(Long id) {
 		int found = getStudentById(id);
-		students.remove(found);
+
+        if (found != -1) {
+            students.remove(found);
+        }
 	}
 
 }
